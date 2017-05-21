@@ -1,0 +1,19 @@
+
+            <li class="active">
+              <a data-toggle="collapse" href="#pagesExamples" class="collapsed" aria-expanded="false">
+                <i class="material-icons">image</i>
+                <p><%= options_params[:model_cap_plu] %>
+                  <b class="caret"></b>
+                </p>
+              </a>
+              <div class="collapse" id="pagesExamples" aria-expanded="false" style="height: 296px;">
+                <ul class="nav">
+                  <li>
+                    <%%= link_to "List", <%= options_params[:namespace]%>_<%= options_params[:model_plu] %>_path %>
+                  </li>
+                  <li>
+                    <%%= link_to "New", new_<%= options_params[:namespace]%>_<%= options_params[:model] %>_path %>
+                  </li>
+                </ul>
+              </div>
+            </li>

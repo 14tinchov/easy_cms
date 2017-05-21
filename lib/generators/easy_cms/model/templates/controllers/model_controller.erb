@@ -1,0 +1,60 @@
+<%= %Q(class #{config[:namespace_cap]}::#{config[:model_cap_plu]}Controller < #{config[:namespace_cap]}::BaseController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @#{config[:model_plu]} = #{config[:model_cap]}.all
+  end
+
+  def show
+  end
+
+  def new
+    @#{config[:model]} = #{config[:model_cap]}.new
+  end
+
+  def edit
+  end
+
+  def create
+    @#{config[:model]} = #{config[:model_cap]}.new(#{config[:model]}_params)
+    respond_to do |format|
+      if @#{config[:model]}.save
+        format.html { redirect_to @#{config[:model]}, notice: '#{config[:model_cap]} was successfully created.' }
+        format.json { render :show, status: :created, location: @#{config[:model]} }
+      else
+        format.html { render :new }
+        format.json { render json: @#{config[:model]}.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @#{config[:model]}.update(#{config[:model]}_params)
+        format.html { redirect_to @#{config[:model]}, notice: '#{config[:model_cap]} was successfully updated.' }
+        format.json { render :show, status: :ok, location: @#{config[:model]} }
+      else
+        format.html { render :edit }
+        format.json { render json: @#{config[:model]}.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @#{config[:model]}.destroy
+    respond_to do |format|
+      format.html { redirect_to #{config[:model]}s_url, notice: '#{config[:model_cap]} was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    def set_#{config[:model]}
+      @#{config[:model]} = #{config[:model_cap]}.find(params[:id])
+    end
+
+    def #{config[:model]}_params
+      params.require(:#{config[:model]}).permit()
+    end
+end
+)%>

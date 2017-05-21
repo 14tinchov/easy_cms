@@ -1,0 +1,5 @@
+class <%= config[:namespace].capitalize %>::BaseController < ApplicationController
+  # If you have setup Devise gem uncomment the following line
+  # before_action :authenticate_<%= config[:namespace].singularize %>!
+  layout '<%= config[:namespace].singularize %>'
+end
