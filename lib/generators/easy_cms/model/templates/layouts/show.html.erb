@@ -1,0 +1,22 @@
+<div class="col-md-12">
+  <div class="card card-nav-tabs">
+    <div class="card-header" data-background-color="purple">
+      <h4 class="title"><%= options_params[:model_cap] %></h4>
+    </div>
+
+    <div class="card-content"><%- model_attributes.each do |a| %>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p><strong><%= a[:name].capitalize %>:</strong> <%%= @<%= options_params[:model] %>.<%= a[:name] %>%></p>
+        </div>
+      </div><% end %>
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <%%= link_to 'Edit', edit_<%= options_params[:namespace] %>_<%= options_params[:model] %>_path(@<%= options_params[:model] %>), class: "btn btn-primary" %>
+          <%%= link_to 'Back', <%= options_params[:namespace] %>_<%= options_params[:model_plu] %>_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,9 @@
+require 'generators/resource_helpers'
+
 module EasyCms
   module Generators
     class NamespaceGenerator < Rails::Generators::Base
+      include ResourceHelpers
 
       source_root File.expand_path("../templates", __FILE__)
       desc "This generator create a Namespace to CMS"
@@ -26,8 +29,10 @@ module EasyCms
 
       def add_initializers_assets
         prepend_to_file 'config/initializers/assets.rb' do 
-          "Rails.application.config.assets.precompile += %w( #{namespace}.scss )\n"
           "Rails.application.config.assets.precompile += %w( #{namespace}.js )\n"
+        end
+        prepend_to_file 'config/initializers/assets.rb' do 
+          "Rails.application.config.assets.precompile += %w( #{namespace}.scss )\n"
         end
       end
 

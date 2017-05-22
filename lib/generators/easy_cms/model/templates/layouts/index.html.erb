@@ -1,1 +1,37 @@
-<p>index</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="purple">
+          <h4 class="title"><%= options_params[:model_cap_plu] %></h4>
+          <p class="category">Here is a subtitle for this table</p>
+      </div>
+      <div class="card-content table-responsive">
+        <table class="table">
+          <thead class="text-primary">
+            <tr><%- model_attributes.each do |a| %>
+              <th><%= a[:name].capitalize %></th><% end %>
+            </tr>
+          </thead>
+            <%%- @<%= options_params[:model_plu] %>.each do |<%= options_params[:model] %>| %>
+              <tr>
+                <tr><%- model_attributes.each do |a| %>
+                  <td><%%= <%= options_params[:model] %>.<%= a[:name] %> %></td><% end %>
+                  <td><%%= link_to 'Show', <%= options_params[:namespace] %>_<%= options_params[:model] %>_path(<%= options_params[:model] %>) %></td>
+                  <td><%%= link_to 'Edit', edit_<%= options_params[:namespace] %>_<%= options_params[:model] %>_path(<%= options_params[:model] %>) %></td>
+                  <td><%%= link_to 'Destroy', <%= options_params[:namespace] %>_<%= options_params[:model] %>_path(<%= options_params[:model] %>), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              </tr>
+            <%% end %>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <%%= link_to 'Create', new_<%= options_params[:namespace] %>_<%= options_params[:model] %>_path, class: "btn btn-primary" %>
+  </div>
+</div>

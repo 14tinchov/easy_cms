@@ -1,0 +1,26 @@
+<%%= form_for([:<%= options_params[:namespace] %>, <%= options_params[:model] %>]) do |f| %>
+  <%% if <%= options_params[:model] %>.errors.any? %>
+    <div class="col-md-12">
+      <h2><%%= pluralize(<%= options_params[:model] %>.errors.count, "error") %> prohibited this <%= options_params[:model] %> from being saved:</h2>
+
+      <ul>
+      <%% <%= options_params[:model] %>.errors.full_messages.each do |message| %>
+        <li><%%= message %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+  <%- model_attributes.each do |a| %>
+  <div class="col-md-12">
+    <div class="form-group label-floating is-empty">
+      <%%= f.label :<%= a[:name] %>, class: "control-label" %>
+      <%%= f.text_field :<%= a[:name] %>, class: "form-control" %>
+      <span class="material-input"></span>
+    </div>
+  </div><% end %>
+
+  <div class="actions"> 
+    <%%= f.submit class: "btn btn-primary" %>
+    <%%= link_to 'Back', <%= options_params[:namespace] %>_<%= options_params[:model_plu] %>_path %>
+  </div>
+<%% end %>
