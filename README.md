@@ -7,7 +7,7 @@ A simple CMS with [Material template](https://www.creative-tim.com/product/mater
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'easy_cms'
+gem 'easy_cms', :git => 'git@github.com:14tinchov/easy_cms.git'
 ```
 
 ## Usage

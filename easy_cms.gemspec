@@ -4,6 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'easy_cms/version'
 
 Gem::Specification.new do |spec|
+  spec.add_dependency "jquery-rails", "~> 4.3"
+
   spec.name          = "easy_cms"
   spec.version       = EasyCms::VERSION
   spec.authors       = ["Martin Villalba"]
