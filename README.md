@@ -1,13 +1,14 @@
 # EasyCms
 
-A simple CMS with [Material template](https://www.creative-tim.com/product/material-dashboard)
+A simple CMS with [Material template](https://www.creative-tim.com/product/material-dashboard), this gem helps to create a scaffold with a template to panel admin.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'easy_cms', :git => 'git@github.com:14tinchov/easy_cms.git'
+gem 'jquery-rails'
+gem 'easy_cms'
 ```
 
 ## Usage
